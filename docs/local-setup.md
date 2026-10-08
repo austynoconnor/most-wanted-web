@@ -131,3 +131,14 @@ Adaptive menu hints below the canvas follow keyboard/controller use; controller
 names can still be entered with the keyboard. Physical controller gameplay and
 saving/reloading that alias are separate checks. See the
 [browser investigation](browser-stability.md) for the evidence and limits.
+
+## Streamed game data
+
+The NFS configuration enables `stream_assets = true` for hosted installations.
+New players cache the verified executable first; the engine fetches other data
+in HTTP ranges as it is read, with a 64 MiB session cache. Existing complete OPFS
+imports stay usable. The local serve script supplies the manifest, sized HEAD
+responses and byte ranges automatically. Production asset servers must support
+those requests and COOP/COEP/CORP isolation headers. The Wasm engine still needs
+to download, and streamed ranges are not a complete offline installation.
+See `docs/browser-stability.md` for actual verification limits and memory guards.

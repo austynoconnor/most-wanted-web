@@ -921,6 +921,8 @@ start = "key:Escape"
 title = "Need for Speed: Most Wanted"
 install_names = ["Need for Speed Most Wanted", "NFS Most Wanted", "Most Wanted"]
 min_free_mb = 300
+# Fetch large archives in HTTP ranges when no complete local copy exists.
+stream_assets = true
 
 [setup]
 # tools/setup.py: what a supported installation must contain. No annotation

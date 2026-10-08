@@ -2,6 +2,22 @@
 
 ## Unreleased
 
+- 2026-10-08 11:30 CDT — GPT-6 (Codex): Added opt-in streamed browser assets. Startup
+  verifies and caches only the executable, then constructs a read-only FetchFS
+  directory catalogue on the guest worker; profiles remain in OPFS and existing
+  fully imported games keep their local read path. Hosted asset routes support
+  sized HEAD responses and exact HTTP byte ranges, suffix reads, EOF clipping
+  and 416 failures. Added a FetchFS bridge with a shared 64 MiB LRU and at most
+  1 MiB per request instead of retaining every read chunk indefinitely. Range,
+  startup-only imports, cache reuse, cross-chunk reads, eviction and incomplete
+  responses are covered by tests. The release web engine built and an empty
+  OPFS profile reached the actual title using range requests; its OPFS held
+  only the 6,029,312-byte executable, catalogue and import metadata. Long default
+  browser probes were stopped by the external resource watchdog near 4 GiB or
+  below 2 GiB system headroom. Career, saved alias round trips and race completion
+  remain unverified for this path. Streamed ranges are session memory, not a
+  persistent offline installation. No public asset hosting was deployed.
+
 - 2026-10-08 10:58 CDT — GPT-6 (Codex): Fixed duplicate typed characters
   by retaining host key-message provenance and preventing TranslateMessage
   from generating text already queued by the input gate. SDL text now preserves
