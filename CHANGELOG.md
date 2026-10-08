@@ -2,6 +2,26 @@
 
 ## Unreleased
 
+- 2026-10-08 02:58 CDT — GPT-6 (Codex): Started the Windows-to-browser
+  build pipeline using the verified original game files. Fixed Ghidra's
+  Windows launcher selection and headless heap configuration; added
+  tools/build-web.ps1 and tools/serve-web.ps1 for validated input preparation,
+  analysis, translation, Emscripten compilation and isolated local serving.
+  Recorded the tool versions, 25,768 exported functions, successful runtime-only
+  browser compilation and Chrome import/WebGPU checks in docs/local-setup.md.
+  Web/build tests: 41 passed. The broader tooling suite has four environment
+  failures (symlink privileges/native C compiler), recorded without claiming
+  them as passes. Full gameplay verification remains outstanding.
+
+- 2026-10-08 02:38 CDT — GPT-6 (Codex): Prepared local Windows inputs for
+  browser-port work. Verified the PC Black Edition image against its source
+  checksum, extracted 1,406 game entries into ignored original/retail, and
+  confirmed the included patched executable matches game.toml. Installed the
+  pinned Python dependencies using Python 3.12 after a Python 3.13 NumPy
+  incompatibility; all four game configuration tests pass and setup accepts
+  the inputs. Added docs/local-setup.md with reproducible input identifiers,
+  checksums and remaining build requirements. No browser gameplay is verified.
+
 - Fix stick knobs not moving independently when dragging the touch gamepad.
   Their visual positions now update while bases and touch zones stay put
   during the drag.

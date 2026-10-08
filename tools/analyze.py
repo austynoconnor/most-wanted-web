@@ -59,13 +59,20 @@ def main():
         env["JAVA_HOME"] = str(args.java_home.expanduser().resolve())
         env["PATH"] = str(Path(env["JAVA_HOME"]) / "bin") + os.pathsep + env.get("PATH", "")
     env["MAXMEM"] = args.max_memory
+    env["GHIDRA_HEADLESS_MAXMEM"] = args.max_memory
     listings = cfg["listings_path"]            # analysis/decompiled/speed.exe
     output = listings.parent                   # analysis/decompiled
     project = output.parent / "ghidra"
     project.mkdir(parents=True, exist_ok=True)
     output.mkdir(parents=True, exist_ok=True)
+    # Ghidra ships a batch launcher on Windows and an executable shell script
+    # elsewhere. Select the installed launcher rather than trying to execute
+    # the Unix script through CreateProcess on Windows.
+    launcher = ghidra / "support" / ("analyzeHeadless.bat" if os.name == "nt" else "analyzeHeadless")
+    if not launcher.is_file():
+        sys.exit("Ghidra's headless launcher is missing: %s" % launcher)
     command = [
-        str(ghidra / "support/analyzeHeadless"), str(project), cfg["game"]["app_name"],
+        str(launcher), str(project), cfg["game"]["app_name"],
         "-import", str(exe), "-deleteProject",
         "-scriptPath", str(KIT / "tools"),
         "-postScript", "ExportProgram.java", str(output),
