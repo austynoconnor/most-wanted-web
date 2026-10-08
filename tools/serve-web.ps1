@@ -7,5 +7,5 @@ $taskSite = Join-Path $taskRoot 'build/web-site'
 if (-not (Test-Path -LiteralPath (Join-Path $taskSite 'nfsmw/index.html'))) {
     throw 'Build the game with tools/build-web.ps1 before serving it.'
 }
-& $taskPython (Join-Path $taskRoot 'kit/tools/web_launcher.py') --game-dir $taskRoot --out $taskSite --serve $Port
+& $taskPython (Join-Path $taskRoot 'kit/tools/web_launcher.py') --game-dir $taskRoot --out $taskSite --asset-dir "nfsmw=$(Join-Path $taskRoot 'original/retail')" --serve $Port
 if ($LASTEXITCODE -ne 0) { throw 'The browser server stopped with an error.' }

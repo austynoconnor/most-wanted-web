@@ -62,3 +62,28 @@ reproduce the user's visible-browser environment or establish race stability.
 These changes address observed startup risks; they are not proof that the
 reported desktop freeze is fixed. Race-loading reliability,
 audio, saves and full career compatibility also remain open.
+
+## Direct-play update — 2026-10-08 10:29 CDT
+
+The user requested a click-to-play flow like vel.gg/bo1z, without a folder picker.
+The local server now provides an explicit asset manifest for the pinned game
+installation. The player checks its validated OPFS cache, automatically streams
+missing files through the existing importer on a worker, and only then starts
+the engine. Downloads remain sequential; incomplete transfers are rejected and
+can resume on another Start. Stops/session ownership retain the earlier controls.
+
+A fresh Chrome test profile fetched all 1,393 files (2,970,739,983 bytes) in about
+54 seconds over localhost. That first probe was interrupted because its test
+wait condition referenced an Emscripten property this build does not expose;
+this was a test instrumentation error. A corrected follow-up probe reused the
+automatically populated cache and reached the title and animated menu without
+any file picker. At 200% scaling, the canvas was 1280×720, heap 512 MiB and worker
+pool six active/two idle. Stop succeeded and the resource watchdog did not trip;
+the process tree peaked at 3,600 MiB private memory. No compiler-task limit was
+applied. This remains a headless check, not proof the visible desktop freeze is
+fixed or that races load reliably.
+
+52 relevant tests pass, including new regressions for explicit asset routes and
+exclusions, automatic first-visit downloads, cache use with an offline source,
+and recovery after a truncated download. Game files and binaries remain outside
+published source. A public direct-play URL has not been deployed.

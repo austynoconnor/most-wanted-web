@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- 2026-10-08 10:29 CDT — GPT-6 (Codex): Replaced the local NFS folder-import
+  requirement with direct browser play. Start automatically downloads missing
+  files from the validated installation, streams them into browser storage with
+  progress and reuses the cache on later visits. Stop/session guards remain.
+  Added incomplete-download detection and retry/resume coverage; source failures
+  now close their OPFS writer. 52 relevant tests passed. A fresh Chrome profile
+  automatically fetched 1,393 files (2,970,739,983 bytes); the corrected follow-up
+  probe reached title/menu from that cache and stopped successfully, with a
+  3,600 MiB peak and no watchdog intervention. Documented the initial probe's
+  instrumentation error, local-only hosting and remaining desktop/race risks.
+  No game assets or generated engine binaries are published in GitHub.
+
 - 2026-10-08 10:15 CDT — GPT-6 (Codex): Pinned the browser startup stability
   changes in the kit fork after the user's PC froze while loading. The player
   waits for Start game, blocks duplicate sessions and removes its runtime on

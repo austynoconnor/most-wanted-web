@@ -97,14 +97,23 @@ SetFVF and audio-starvation warnings remain. Braking from speed, audio
 correctness, saves, loading reliability and full career completion still need
 verification. This is a working gameplay prototype, not a complete game claim.
 
-The four game configuration tests, 41 launcher/build tests and four browser
-player lifecycle tests pass (49 total).
+The relevant game configuration, launcher/build and browser player checks pass
+(52 total), including hosted-download and cache recovery regressions.
 
-After starting the local server, open its URL. Choose Import
-folder and select this checkout's `original/retail` directory, wait for Ready,
-then choose Play and Start game. Opening or restoring the player alone stays
-idle. Stop game releases the runtime and its workers. Import requires
-approximately 2.8 GB of browser storage.
+Start `tools/serve-web.ps1 -Port 8025`, open
+`http://127.0.0.1:8025/nfsmw/` and choose Start game. No folder selection is
+needed: the local server exposes the validated installation through an explicit
+asset manifest. The player downloads missing files into OPFS one at a time,
+shows progress and then boots the browser engine. Its first load contains
+1,393 files totaling 2,970,739,983 bytes; later visits use the validated cache.
+Opening or restoring the player alone stays idle. Stop removes the runtime
+and download worker, leaving cached files and saves available. An interrupted
+first load can resume on the next Start.
+
+This direct-play flow is currently served from localhost. A public URL requires
+deploying the browser build and game assets to a suitable host; the GitHub source
+push does not deploy them. The generic kit launcher still supports manual imports
+for configurations that do not provide a hosted asset source.
 
 A temporary Cloudflare tunnel was also checked in Chrome: the launcher rendered,
 `crossOriginIsolated` was true, and the optimized Wasm endpoint served the correct

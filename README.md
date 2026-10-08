@@ -52,6 +52,13 @@ substantial; the exact desktop freeze is unverified. See the
 [stability investigation](docs/browser-stability.md). The game is stopped.
 The main workspace is `C:\AI Work\Giggity Games`.
 
+**Direct browser play — 2026-10-08:** the local player automatically downloads
+and caches game files when Start game is clicked; it no longer requires a folder
+picker. First-visit downloads, cache reuse and incomplete-download recovery are
+tested. The actual game reached its title/menu using the automatically populated
+cache. Public hosting remains separate from the source repository. See
+[local launch instructions](docs/local-setup.md).
+
 **Local browser check — 2026-10-08:** the full Windows/Emscripten build boots
 in Chrome with NVIDIA WebGPU and drives a Century Square circuit. Acceleration,
 left/right steering, reverse and pause were verified. Release Wasm is 137 MB
