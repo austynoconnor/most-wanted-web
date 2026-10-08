@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- 2026-10-08 03:15 CDT — GPT-6 (Codex): Completed the original executable's
+  translation and full Emscripten browser build. Verified the actual title
+  screen and animated 3D main menu in Chrome using local NVIDIA WebGPU.
+  Pinned the kit fork's release-link optimization, reducing shipped Wasm from
+  561,984,703 to 136,609,730 bytes, and documented browser import and launch.
+  No game files or generated binaries are committed. Race and full-career
+  verification remain outstanding.
+
 - 2026-10-08 02:58 CDT — GPT-6 (Codex): Started the Windows-to-browser
   build pipeline using the verified original game files. Fixed Ghidra's
   Windows launcher selection and headless heap configuration; added

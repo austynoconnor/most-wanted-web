@@ -43,6 +43,25 @@ The local tools are intentionally untracked. A fresh checkout needs a Python 3.1
 ./tools/serve-web.ps1 -Port 8000
 ```
 
-The real game translation/build and gameplay verification are in progress. A successful runtime-only build is not a playable game.
+## Full game browser build verification
+
+The full translation and Emscripten build completed on 2026-10-08. The translator
+emitted 36,690 functions and 42,544 entry points, with no unmodelled operations or
+undecoded jump-table sites in its report. Eight guessed blocks were withdrawn;
+these counts do not establish complete game compatibility.
+
+The release kit now runs Emscripten link optimization and strips DWARF in
+non-Debug builds. `SpeedRecomp.wasm` fell from 561,984,703 to 136,609,730 bytes.
+The kit submodule points to the maintained fork containing this change.
+
+Actual Chrome on the local NVIDIA GPU imported the game files, booted the
+translated executable, displayed the title screen and rendered the animated 3D
+main menu. The optimized build repeated this successfully. Race loading,
+driving, audio correctness, saves and full career completion remain separate
+verification tasks; this is not yet a claim that the whole game works.
+
+The prepared build is served locally at `http://127.0.0.1:8025/`. Choose Import
+folder and select this checkout's `original/retail` directory, wait for Ready,
+then choose Play. Import requires approximately 2.8 GB of browser storage.
 
 Game inputs, extracted executables, generated code and downloaded installers must remain outside published source changes.
