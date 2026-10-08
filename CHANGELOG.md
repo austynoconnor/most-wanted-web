@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- 2026-10-08 11:34 CDT — GPT-6 (Codex): Restored normal documentation
+  paragraph spacing after a Windows newline conversion and clarified that
+  the lower-overhead gameplay probe refused insufficient launch headroom.
+
 - 2026-10-08 11:30 CDT — GPT-6 (Codex): Added opt-in streamed browser assets. Startup
   verifies and caches only the executable, then constructs a read-only FetchFS
   directory catalogue on the guest worker; profiles remain in OPFS and existing
