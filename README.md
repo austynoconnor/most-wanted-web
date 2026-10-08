@@ -43,6 +43,13 @@ dead ends are in [docs/analysis.md](docs/analysis.md).
 
 ## Platform status
 
+**Local browser check — 2026-10-08:** the full Windows/Emscripten build boots
+in Chrome with NVIDIA WebGPU and drives a Century Square circuit. Acceleration,
+left/right steering, reverse and pause were verified. Release Wasm is 137 MB
+after link optimization and debug-data removal. Audio, saves, full career and
+loading reliability remain unverified; the short run is not a performance
+benchmark. See [local preparation and checks](docs/local-setup.md).
+
 Status as of 2026-09-19, from the [run log](docs/analysis.md). macOS is the
 only platform re-checked against the current kit pin; the others were
 verified against an earlier one and are marked accordingly.

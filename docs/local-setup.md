@@ -56,12 +56,29 @@ The kit submodule points to the maintained fork containing this change.
 
 Actual Chrome on the local NVIDIA GPU imported the game files, booted the
 translated executable, displayed the title screen and rendered the animated 3D
-main menu. The optimized build repeated this successfully. Race loading,
-driving, audio correctness, saves and full career completion remain separate
-verification tasks; this is not yet a claim that the whole game works.
+main menu. The optimized build repeated this successfully.
+
+A subsequent screen-guided Chrome check loaded the Century Square circuit in a
+Fiat Punto. Up accelerated from 0 to 63 mph; Left and Right changed the car's
+heading; Down reversed away from a wall at 26 mph; Escape displayed the pause
+menu. Local screenshots and runtime logs are retained under ignored
+`build/check-*.png` and `build/check-*.json`. The HUD showed roughly 39–51 fps
+during these captures; this is a short headless run, not a performance benchmark.
+No fatal/missing-block diagnostic was captured, but unsupported guest-thunk,
+SetFVF and audio-starvation warnings remain. Braking from speed, audio
+correctness, saves, loading reliability and full career completion still need
+verification. This is a working gameplay prototype, not a complete game claim.
+
+The four game configuration tests and 41 launcher/build tests pass (45 total).
 
 The prepared build is served locally at `http://127.0.0.1:8025/`. Choose Import
 folder and select this checkout's `original/retail` directory, wait for Ready,
 then choose Play. Import requires approximately 2.8 GB of browser storage.
+
+A temporary Cloudflare tunnel was also checked in Chrome: the launcher rendered,
+`crossOriginIsolated` was true, and the optimized Wasm endpoint served the correct
+136,609,730-byte build. The tunnel depends on this computer and the running
+server; it is not a permanent deployment. Game data is imported locally per
+browser origin and is not hosted with the launcher.
 
 Game inputs, extracted executables, generated code and downloaded installers must remain outside published source changes.

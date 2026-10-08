@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- 2026-10-08 03:23 CDT — GPT-6 (Codex): Verified browser gameplay in a
+  Century Square circuit with the Fiat Punto: acceleration to 63 mph,
+  left/right steering, reverse to 26 mph and the pause menu. Recorded the
+  actual Chrome/NVIDIA checks, remaining diagnostics and unverified features
+  in docs/local-setup.md; added the current browser milestone to README.md.
+  Relevant Python tests: 45 passed. Verified the temporary external launcher
+  and its isolation headers. Full-career, audio, saves and repeated loading
+  reliability remain open; no private captures or game assets are published
+  in source control.
+
 - 2026-10-08 03:15 CDT — GPT-6 (Codex): Completed the original executable's
   translation and full Emscripten browser build. Verified the actual title
   screen and animated 3D main menu in Chrome using local NVIDIA WebGPU.
