@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- 2026-10-08 09:29 CDT — GPT-6 (Codex): Moved all game downloads and the
+  complete source/tools/analysis/build/profile workspace to
+  C:\AI Work\Giggity Games. Verified identical file counts and byte totals
+  across the move (31,258,145,629 bytes total). Preserved old CMake caches
+  separately, repaired relocated Python activation/console entry points and
+  verified Python dependencies, CMake, Ninja, game-input setup and Emscripten.
+  Updated workspace guidance and recorded the user's visible-Chrome PC freeze;
+  stopped the server/tunnel and performed no game launch or full rebuild.
+
 - 2026-10-08 03:23 CDT — GPT-6 (Codex): Verified browser gameplay in a
   Century Square circuit with the Fiat Punto: acceleration to 63 mph,
   left/right steering, reverse to 26 mph and the pause menu. Recorded the

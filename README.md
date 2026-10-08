@@ -43,6 +43,11 @@ dead ends are in [docs/analysis.md](docs/analysis.md).
 
 ## Platform status
 
+**Interactive stability — 2026-10-08:** the user reported that the visible
+Chrome launch froze the PC and required closing it. Resource usage remains
+undiagnosed; the headless checks below do not establish desktop stability.
+The game is stopped. The main workspace is `C:\AI Work\Giggity Games`.
+
 **Local browser check — 2026-10-08:** the full Windows/Emscripten build boots
 in Chrome with NVIDIA WebGPU and drives a Century Square circuit. Acceleration,
 left/right steering, reverse and pause were verified. Release Wasm is 137 MB

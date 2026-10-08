@@ -2,6 +2,28 @@
 
 Prepared by GPT-6 (Codex) on 2026-10-08, America/Chicago.
 
+## Current workspace and interactive stability
+
+The main workspace is now `C:\AI Work\Giggity Games`; this checkout is
+`C:\AI Work\Giggity Games\most-wanted-web`. All downloaded game inputs are
+in the sibling `game-inputs` folder. The previous dated Codex location is
+retired. Downloads, source, submodule, analysis, tools, generated code, built
+artifacts and browser profiles were moved together. File counts and total
+bytes matched before and after the move: 11 download/input files totaling
+14,871,169,710 bytes and 95,664 project files totaling 16,386,975,919 bytes,
+before subsequent relocation repairs and documentation changes.
+
+The user reported that the visible Chrome launch froze the PC and required
+closing it. The earlier headless checks do not establish interactive
+stability. The game server and associated tunnel were stopped; resource usage
+must be investigated before treating this build as ready for desktop play.
+
+The old absolute-path CMake caches are preserved in ignored
+`build/cmake-before-move`; a future build will configure a fresh `build/cmake`.
+Python activation paths and console entry points were repaired for the new
+location. Python imports, CMake, Ninja, game-input validation and the relocated
+Emscripten compiler were checked without launching the game or recompiling it.
+
 - Internet Archive item: `need-for-speed-most-wanted-black-edition_202604`.
 - Download: `../game-inputs/MostWanted-2005-BlackEdition.iso` (2,302,769,152 bytes).
 - The image's SHA-1 matches Archive metadata: `f92404d39f7499206e6e4a73d5d5369939471de2`.
