@@ -87,3 +87,47 @@ fixed or that races load reliably.
 exclusions, automatic first-visit downloads, cache use with an offline source,
 and recovery after a truncated download. Game files and binaries remain outside
 published source. A public direct-play URL has not been deployed.
+
+## Keyboard entry and device hints — 2026-10-08 10:58 CDT
+
+The user reported doubled characters while typing James. The input gate was
+posting WM_CHAR alongside keydown, and TranslateMessage synthesized another
+character for that keydown. Host provenance now marks keys with text already
+posted, is retained for each delivered MSG buffer and is checked before text
+translation. Nested reads do not lose that provenance; guest MSG bytes retain
+their original layout. SDL character conversion now keeps Shift/Caps Lock.
+
+The rebuilt browser engine was checked in its real new-alias dialog after the
+career and autosave confirmation screens. Clearing the existing NAME default,
+typing James, deleting the final character with Backspace and retyping s left
+exactly James, including the capital J. This is a keyboard-entry check, not a
+save/load round-trip. The completed test used default Chrome compiler settings,
+1280×720 rendering at 200% scaling and the existing eight-worker/512 MiB startup.
+Stop succeeded; the watchdog did not trip. Its peak private memory was 3,862 MiB.
+An earlier probe began before memory monitoring had located Chrome; its reported
+zero-byte peak is invalid and is not used as resource evidence. Later probes
+refused insufficient launch headroom before creating Chrome and retained an
+external runtime watchdog. Early navigation captures were not name-field tests.
+
+Adaptive menu hints are displayed below the canvas. They distinguish keyboard,
+Xbox, PlayStation, Nintendo and generic pad button labels, prefer the most
+recently active device, ignore unchanged held input and fall back when a pad
+disconnects. Controller users are told to use the keyboard for names. These are
+browser hints; embedded game artwork has not been rewritten, and actual physical
+controller gameplay is still unverified. The automated fixture covers active
+keyboard/pad switching, held-input behavior and disconnects. 53 relevant checks
+pass. A nested-message/text native regression was added but the standalone
+native suite was not run on this Windows host; the real web application built.
+
+## Progressive download investigation
+
+The user asked for a boot download followed by content arriving during play,
+like the referenced Zombies site. The current NFS importer still waits for the
+full manifest. Initial size accounting finds approximately 906 MiB of SOUND,
+803 MiB of MOVIES, 593 MiB of TRACKS, 372 MiB of CARS, 60 MiB of FRONTEND and
+51 MiB of GLOBAL data. These are size groups, not verified independent packs.
+The next dependency measurement must trace file opens through startup, car
+selection and race entry before a smaller boot pack is declared complete.
+Missing files cannot simply be handed to the current synchronous guest file
+API: selected content must be ready before those reads, or the runtime must
+gain a download-wait mechanism. No progressive-loading behavior is claimed yet.

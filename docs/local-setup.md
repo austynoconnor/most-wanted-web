@@ -98,7 +98,7 @@ correctness, saves, loading reliability and full career completion still need
 verification. This is a working gameplay prototype, not a complete game claim.
 
 The relevant game configuration, launcher/build and browser player checks pass
-(52 total), including hosted-download and cache recovery regressions.
+(53 total), including hosted-download/cache recovery and active-device hints.
 
 Start `tools/serve-web.ps1 -Port 8025`, open
 `http://127.0.0.1:8025/nfsmw/` and choose Start game. No folder selection is
@@ -122,3 +122,12 @@ server; it is not a permanent deployment. Game data is imported locally per
 browser origin and is not hosted with the launcher.
 
 Game inputs, extracted executables, generated code and downloaded installers must remain outside published source changes.
+
+## Browser input check — 2026-10-08 10:58 CDT
+
+The rebuilt engine accepts James once, including its capital J, after removing
+the original NAME default in the alias dialog. Backspace/retyping was checked.
+Adaptive menu hints below the canvas follow keyboard/controller use; controller
+names can still be entered with the keyboard. Physical controller gameplay and
+saving/reloading that alias are separate checks. See the
+[browser investigation](browser-stability.md) for the evidence and limits.

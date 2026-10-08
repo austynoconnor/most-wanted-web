@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- 2026-10-08 10:58 CDT — GPT-6 (Codex): Fixed duplicate typed characters
+  by retaining host key-message provenance and preventing TranslateMessage
+  from generating text already queued by the input gate. SDL text now preserves
+  Shift/Caps Lock. Completed the browser rebuild and visually verified James
+  in the real alias dialog, clearing the default NAME text, typing once, then
+  using Backspace and retyping s. Added adaptive keyboard/controller hints below
+  the canvas with Xbox, PlayStation, Nintendo and generic labels, last-used
+  device switching and disconnect fallback. 53 relevant checks passed; added
+  a native nested-message/text regression (not run as a native test suite on
+  this host). Fixed stale hosted-manifest retries with no-store fetches. Updated
+  verification limits and initial asset-size findings for progressive loading.
+  Source changes only; game assets, captures and builds remain private.
+
 - 2026-10-08 10:29 CDT — GPT-6 (Codex): Replaced the local NFS folder-import
   requirement with direct browser play. Start automatically downloads missing
   files from the validated installation, streams them into browser storage with
