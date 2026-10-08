@@ -17,12 +17,15 @@ bytes matched before and after the move: 11 download/input files totaling
 before subsequent relocation repairs and documentation changes.
 
 The user reported that the visible Chrome launch froze the PC and required
-closing it. The earlier headless checks do not establish interactive
-stability. The game server and associated tunnel were stopped; resource usage
-must be investigated before treating this build as ready for desktop play.
+closing it while loading. Startup controls and a reduced worker/heap build
+have now been verified through the menus under monitored headless Chrome.
+The desktop freeze remains unverified, and memory use remains substantial.
+See [browser stability](browser-stability.md) for measurements and limitations.
+The game and previous public tunnel remain stopped.
 
 The old absolute-path CMake caches are preserved in ignored
-`build/cmake-before-move`; a future build will configure a fresh `build/cmake`.
+`build/cmake-before-move`; the working `build/cmake` was repaired to use the
+new paths and subsequently completed a full browser rebuild.
 Python activation paths and console entry points were repaired for the new
 location. Python imports, CMake, Ninja, game-input validation and the relocated
 Emscripten compiler were checked without launching the game or recompiling it.
@@ -94,11 +97,14 @@ SetFVF and audio-starvation warnings remain. Braking from speed, audio
 correctness, saves, loading reliability and full career completion still need
 verification. This is a working gameplay prototype, not a complete game claim.
 
-The four game configuration tests and 41 launcher/build tests pass (45 total).
+The four game configuration tests, 41 launcher/build tests and four browser
+player lifecycle tests pass (49 total).
 
-The prepared build is served locally at `http://127.0.0.1:8025/`. Choose Import
+After starting the local server, open its URL. Choose Import
 folder and select this checkout's `original/retail` directory, wait for Ready,
-then choose Play. Import requires approximately 2.8 GB of browser storage.
+then choose Play and Start game. Opening or restoring the player alone stays
+idle. Stop game releases the runtime and its workers. Import requires
+approximately 2.8 GB of browser storage.
 
 A temporary Cloudflare tunnel was also checked in Chrome: the launcher rendered,
 `crossOriginIsolated` was true, and the optimized Wasm endpoint served the correct

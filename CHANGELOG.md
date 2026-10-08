@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+- 2026-10-08 10:15 CDT — GPT-6 (Codex): Pinned the browser startup stability
+  changes in the kit fork after the user's PC froze while loading. The player
+  waits for Start game, blocks duplicate sessions and removes its runtime on
+  Stop. Rendering is bounded to 1280×720 without high-DPI multiplication;
+  prewarmed workers fall from 24 to eight and the initial growable Wasm heap
+  from 1 GiB to 512 MiB. Completed the full relocated Windows/Emscripten build
+  (136,609,535-byte Wasm) and 49 relevant tests. Monitored headless Chrome
+  reached the title and animated career menu at 200% scaling with a 1280×720
+  backing canvas, 512 MiB heap and six active/two idle workers. Stop succeeded;
+  the external watchdog did not trip. Peak private memory was 3,758 MiB,
+  falling to 1,339 MiB five seconds after Stop under a test-only compiler-task
+  limit. Documented that this does not prove ordinary desktop startup or the
+  reported freeze is fixed. A follow-up headless run with default Chrome Wasm
+  compiler settings also reached the menus and stopped without watchdog
+  intervention (3,685 MiB peak, 1,357 MiB about four seconds after Stop).
+  No game assets, private logs or builds published.
+
 - 2026-10-08 09:33 CDT — GPT-6 (Codex): Organized the workspace by game.
   Most Wanted's complete repository, tools, analysis, generated builds and
   browser profiles now live in NFS Most Wanted/most-wanted-web; its ISO and

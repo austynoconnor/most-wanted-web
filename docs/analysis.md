@@ -1,5 +1,10 @@
 # Port analysis
 
+The 2026-10-08 browser loading/freezing investigation, startup safeguards and
+resource measurements are recorded in [browser stability](browser-stability.md).
+The user's visible-browser freeze remains a separate issue from the race-loading
+spin discussed below.
+
 What `speed.exe` needs from the kit, measured on 2026-09-13 from the pinned
 executable. This is the `analyze` stage of the kit's design (its section 3.2)
 done by hand, since the kit's `analyze` command is milestone M2 work.

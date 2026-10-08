@@ -44,9 +44,13 @@ dead ends are in [docs/analysis.md](docs/analysis.md).
 ## Platform status
 
 **Interactive stability — 2026-10-08:** the user reported that the visible
-Chrome launch froze the PC and required closing it. Resource usage remains
-undiagnosed; the headless checks below do not establish desktop stability.
-The game is stopped. The main workspace is `C:\AI Work\Giggity Games`.
+Chrome launch froze the PC while loading. The player now requires Start game,
+allows one session per game, provides Stop game and bounds rendering to
+1280×720. A rebuilt engine with eight prewarmed workers and a 512 MiB initial
+heap reached the menus under monitored headless Chrome. Memory use remains
+substantial; the exact desktop freeze is unverified. See the
+[stability investigation](docs/browser-stability.md). The game is stopped.
+The main workspace is `C:\AI Work\Giggity Games`.
 
 **Local browser check — 2026-10-08:** the full Windows/Emscripten build boots
 in Chrome with NVIDIA WebGPU and drives a Century Square circuit. Acceleration,
