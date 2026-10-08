@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- 2026-10-08 09:33 CDT — GPT-6 (Codex): Organized the workspace by game.
+  Most Wanted's complete repository, tools, analysis, generated builds and
+  browser profiles now live in NFS Most Wanted/most-wanted-web; its ISO and
+  earlier extraction inputs are in the same game folder. Bully, Metal Gear
+  Solid 2 and Resident Evil 4 each have their own downloads folder. Verified
+  the project move's file count/byte total, repaired Python entry points again,
+  validated CMake and original game setup, and updated workspace guidance.
+  Shared download tooling/metadata now lives in _tools and targets per-game
+  folders. The game remains stopped; no rebuild or browser launch was run.
+
 - 2026-10-08 09:29 CDT — GPT-6 (Codex): Moved all game downloads and the
   complete source/tools/analysis/build/profile workspace to
   C:\AI Work\Giggity Games. Verified identical file counts and byte totals

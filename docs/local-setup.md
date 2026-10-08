@@ -5,8 +5,11 @@ Prepared by GPT-6 (Codex) on 2026-10-08, America/Chicago.
 ## Current workspace and interactive stability
 
 The main workspace is now `C:\AI Work\Giggity Games`; this checkout is
-`C:\AI Work\Giggity Games\most-wanted-web`. All downloaded game inputs are
-in the sibling `game-inputs` folder. The previous dated Codex location is
+`C:\AI Work\Giggity Games\NFS Most Wanted\most-wanted-web`. Most Wanted's
+download is in the sibling `downloads` folder; earlier executable/install
+extractions are under `NFS Most Wanted\inputs`. Bully, Metal Gear Solid 2 and
+Resident Evil 4 each have their own game folder and `downloads` subfolder.
+Shared download utilities are in the workspace's `_tools` folder. The previous dated Codex location is
 retired. Downloads, source, submodule, analysis, tools, generated code, built
 artifacts and browser profiles were moved together. File counts and total
 bytes matched before and after the move: 11 download/input files totaling
@@ -25,7 +28,7 @@ location. Python imports, CMake, Ninja, game-input validation and the relocated
 Emscripten compiler were checked without launching the game or recompiling it.
 
 - Internet Archive item: `need-for-speed-most-wanted-black-edition_202604`.
-- Download: `../game-inputs/MostWanted-2005-BlackEdition.iso` (2,302,769,152 bytes).
+- Download: `../downloads/MostWanted-2005-BlackEdition.iso` (2,302,769,152 bytes).
 - The image's SHA-1 matches Archive metadata: `f92404d39f7499206e6e4a73d5d5369939471de2`.
 - Extracted 1,406 entries from the image's two ZIP archives into ignored `original/retail/`, without running its installer.
 - Used the image's `PATCH/SPEED.EXE`, whose SHA-256 matches `game.toml`: `80774c2e5d619b4f120b48d4462896fd504c263399d203a238769cffde1d253c`.
