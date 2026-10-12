@@ -1177,3 +1177,13 @@ and interrupted-import recovery are documented in
 [browser-stability.md](browser-stability.md). These changes do not resolve the
 race-loading investigation above. Full career completion, default-browser memory
 stability, audio and physical controller play remain release gates.
+
+## Browser career driving (2026-10-12)
+
+The rebuilt streamed engine loaded James and entered the opening career race
+on Windows/NVIDIA. Acceleration, steering, reverse and pause/resume responded
+in an isolated eight-minute headless probe. The resource guard did not trip.
+This establishes live career driving, not a finished race or reliable later
+progression. Resource measurements, build fixes and test limits are recorded
+in [browser-stability.md](browser-stability.md). Default desktop stability,
+audio quality and physical controller checks remain release gates.

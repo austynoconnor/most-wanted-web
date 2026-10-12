@@ -24,6 +24,19 @@ Push-Location $taskRoot
 try {
     $env:EMSDK_QUIET = '1'
     & $taskSdkEnvironment
+    # Windows may invoke emcc through an 8.3 path. Expand SDK-relative paths
+    # once so both invocations share a stable compiler identity and cache.
+    $taskSdkRoot = (Join-Path $taskRoot '.tools/emsdk').Replace('\', '/')
+    $taskConfigText = [IO.File]::ReadAllText((Join-Path $taskSdkRoot '.emscripten'))
+    $taskConfigText = $taskConfigText.Replace('$CFGDIR', $taskSdkRoot)
+    if ($taskConfigText -notmatch '(?m)^\s*CACHE\s*=') {
+        $taskConfigText += "`nCACHE = '$taskSdkRoot/upstream/emscripten/cache'`n"
+    }
+    $taskConfigDir = Join-Path $taskRoot 'build'
+    New-Item -ItemType Directory -Force -Path $taskConfigDir | Out-Null
+    $taskStableConfig = Join-Path $taskConfigDir 'emscripten-windows-config.py'
+    [IO.File]::WriteAllText($taskStableConfig, $taskConfigText, [Text.UTF8Encoding]::new($false))
+    $env:EM_CONFIG = $taskStableConfig
     $env:PATH = "$(Join-Path $taskRoot '.venv312/Scripts');$env:PATH"
     if (-not $Stub) {
         & $taskPython tools/setup.py --install original/retail --link-only

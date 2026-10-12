@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- 2026-10-12 02:48 CDT — GPT-6 (Codex): Completed the Windows release rebuild after
+  fixing Emscripten long/8.3-path cache identity in the normal build wrapper.
+  Original SDK configuration remains untouched. Integrated WebGPU depth
+  attachment retirement and pending-encoder submission before texture disposal.
+  Gzip startup loading now uses accurate text instead of mismatched encoded/
+  decoded progress totals. All 58 relevant Python/browser checks pass.
+  An isolated 486.5-second headless NVIDIA run loaded James, streamed the career
+  intro and entered the opening race; acceleration reached 78 mph, steering,
+  reversing and pause/resume responded. Peak owned browser private memory was
+  4.24 GiB, GPU process 2.46 GiB; minimum system headroom was 2.61 GiB. The
+  diagnostic guard did not trip. This is not a completed race or proof that
+  default visible-browser freezes, audio and controller play are resolved.
+
 - 2026-10-12 00:08 CDT — GPT-6 (Codex): Tried game loading without the
   initial memory precheck at the user's request. The first attempt reached
   the title but was manually stopped below 1 GiB free RAM. Corrected a local

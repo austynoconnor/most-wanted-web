@@ -217,3 +217,36 @@ precheck was automatically stopped during loading: eight owned Chrome processes,
 261 MiB aggregate private memory, 1.45 GiB system memory available. These figures
 describe early startup only. No other applications were closed. Full career and
 race validation remain pending; neither attempt establishes desktop stability.
+
+## Post-restart career driving (2026-10-12)
+
+The saved James alias loaded again and Resume Career streamed the opening
+intro and race. Keyboard acceleration reached 78 mph; steering, reverse,
+pause and resume responded. No race-result screen was reached during this
+probe, so it does not establish race completion or later career progression.
+
+The complete rebuilt engine includes WebGPU fitted-depth handle ownership
+and retirement on guest-resource replacement/drop or drawable rescale.
+Before scheduling texture destruction through queue completion, the renderer
+submits an outstanding encoder using that texture. Loading text also avoids
+comparing decoded startup bytes to gzip Content-Length. The normal Windows
+build wrapper uses a separate SDK configuration with canonical paths, avoiding
+compiler cache resets caused by long versus 8.3 path aliases. The build passed
+with four jobs and its build resource guard did not trip. All 58 relevant
+Python/browser checks pass.
+
+An instrumented headless Chrome run lasted 486.5 seconds, with display scale 1
+and two Wasm compiler tasks. Its peak aggregate private memory was 4.24 GiB;
+the NVIDIA Blackwell GPU process peaked at 2.46 GiB, and minimum available
+system memory was 2.61 GiB. The Wasm heap grew from 512 to 608 MiB. It stopped
+cleanly without tripping the diagnostic guard (6 GiB owned-browser private,
+2.5 GiB minimum available system memory). An earlier 4.5 GiB guard had stopped
+track loading with roughly 3.69 GiB still available. The revised private cap
+allowed further diagnosis while retaining the system-headroom guard.
+
+JavaScript GPU counters show repeated texture allocation/retirement, with
+varying live estimates rather than proof of monotonic growth. These counters
+are estimates and do not include driver allocations. The different runs are
+not a controlled before/after memory comparison. The earlier desktop freeze
+and full-game release gates remain unresolved. Test profiles and diagnostic
+logs stay private under ignored build directories.
