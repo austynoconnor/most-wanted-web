@@ -321,3 +321,58 @@ The browser's game-specific hints now include the verified manual shift-up
 binding: Shift on keyboard and the mapped R1/RB/R shoulder on PlayStation,
 Xbox and Nintendo controllers. Generic pads use shoulder-position names.
 Physical controller driving remains unverified.
+
+## Ordinary visible run and remaining HUD checks (2026-10-12)
+
+A subsequent visible Chrome probe removed injected GPU counters, the D3D9
+statistics query and the Wasm compiler-task override. The native performance
+overlay remained enabled. It ran 1,050.7 seconds without a diagnostic guard trip:
+2.24 GiB peak owned private memory, 0.56 GiB GPU private, and 4.40 GiB minimum
+available system memory. Wasm reached 608 MiB. Custom drag menus, track loading,
+restart, Ctrl gear-down and Shift gear-up responded. Both driving attempts
+ended in traffic-collision Totaled standings; no valid timed finish was reached.
+Some drag HUD speed/time readouts were absent and still need investigation.
+
+During driving, the running 48 kHz AudioContext delivered 257 nonzero output
+blocks out of 258, RMS 0.1306 and peak 0.3966 across 1,056,768 channel samples.
+A later aggregate included pauses and standings, with 5,414 nonzero blocks
+out of 11,988. These samples establish audio output, not subjective quality
+or uninterrupted audio across every game state. No physical gamepad was exposed
+by navigator.getGamepads during the run; controller driving remains unverified.
+
+An isolated copy of the diagnostic profile exposed a separate issue when
+widescreen hooks were disabled: the 3D menu scene disappeared. The loader's
+eight-byte operand-redirect copies overlap adjacent four-byte relocated camera
+slots. Reproducing those copies and existing seeds from the supported image
+left horizontal scale at zero and vertical scale at a tiny nonbaseline value.
+The enabled widescreen hooks rewrite those values; disabled hooks expose them.
+Explicit final seeds now restore the original projection and shadow constants,
+verified as float32 1.0, 0.5 and 1.1 at their existing source addresses. Regenerated
+metadata and the complete Windows Wasm build passed. Showroom, car selection
+and streamed drag track render with widescreen disabled. Its HUD clips near
+the edges and still needs layout work; this check establishes restored 3D
+rendering only. A 522.0-second probe stopped cleanly with no resource-guard
+trip, 2.14 GiB peak owned private memory and 4.46 GiB minimum system headroom.
+The original diagnostic profile and player saves were left unchanged.
+
+The rebuilt normal-widescreen version also loaded the saved alias, rendered
+menus and streamed drag track, and responded to acceleration and shifting.
+It reached traffic-collision standings, not a valid timed finish. Its
+390.6-second resource sample peaked at 2.31 GiB owned private memory with
+4.19 GiB minimum system headroom and no guard trip. The native performance
+overlay remained enabled; no GPU-error instrumentation was injected.
+Read-only guest inspection confirmed the normal HUD scale (0.00234375),
+center (426.66666) and an updating timer string (32.06) in an active text
+object, despite its missing on-screen readout. This does not yet distinguish
+layout, visibility and rendering failures. A subsequent temporary layout
+diagnostic used stale objects after restart; its visual result was discarded,
+touched values were restored and the isolated browser was closed.
+
+Regeneration preserves timestamps of byte-identical translated files before
+atomic publication, with regressions for changed content and failed generation.
+The Windows wrapper defaults to one Binaryen optimizer worker, respecting
+explicit overrides. The camera metadata rebuild required five incremental
+build tasks instead of recompiling unchanged shards. The full guarded build
+passed with 5.00 GiB peak owned private memory and 1.89 GiB minimum available
+system memory; this includes translation, not only optimization. All 60
+relevant build-driver, game configuration and browser/launcher checks passed.

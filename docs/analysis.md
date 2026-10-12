@@ -1196,3 +1196,16 @@ probe: 2.30 GiB peak owned private memory, 0.52 GiB GPU private, no captured GPU
 validation errors. Settings, streamed career loading, driving, steering and pause
 worked. See browser-stability.md for methodology and remaining release gates;
 this does not establish a valid race finish or normal visible-browser stability.
+
+### Optional widescreen camera baseline (2026-10-12)
+
+Disabling core.nfsmw's optional widescreen hooks exposed overlapping eight-byte
+operand redirect initialization of adjacent float32 projection slots. The ordinary
+host copies restore the source operands, but later overlapping copies clobber
+those values. Explicit final game.toml seeds restore the verified source values
+(1.0, 0.5 and float32 1.1). Metadata regeneration and the full Windows Wasm build
+passed. The disabled-widescreen showroom, car selection and drag track now
+render; that mode still clips its HUD. Normal widescreen menus, track loading
+and driving also pass. The separate missing drag speed/time readouts remain:
+the timer string updates in guest memory but does not appear on screen.
+See browser-stability.md for the isolated probes and remaining release limits.

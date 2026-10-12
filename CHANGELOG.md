@@ -2,6 +2,44 @@
 
 ## Unreleased
 
+- 2026-10-12 05:10 CDT — GPT-6 (Codex): Completed regenerated Windows Wasm build
+  and rendering validation of the camera baseline fix. Disabled-widescreen
+  showroom, car selection and streamed drag track render again; its HUD still
+  clips and is not release ready. Normal widescreen menus, track loading,
+  acceleration, shifting and collision standings also render/respond. The
+  522.0-second disabled-mode probe and 390.6-second normal-mode probe stopped
+  cleanly without resource-guard trips; peaks were 2.14 and 2.31 GiB owned
+  private memory. No valid timed finish was reached. Timer text updates in
+  guest memory while absent on screen; its rendering remains unresolved.
+  Discarded a temporary layout diagnostic that used stale objects after
+  restart; restored touched values and closed its isolated browser. All 60
+  relevant build-driver, configuration and browser/launcher checks pass.
+
+- 2026-10-12 04:36 CDT — GPT-6 (Codex): Regeneration now preserves timestamps for
+  byte-identical translated sources before atomic publication. Metadata-only
+  changes rebuild the changed table rather than every unchanged shard. Added
+  regressions for same-sized changed content, preserved source timestamps,
+  added/removed files, published symbols and failed-translation preservation.
+  The Windows web wrapper defaults to one Binaryen optimizer worker while
+  respecting an explicit BINARYEN_CORES setting. The regenerated full build
+  passed: only five incremental build tasks, no unchanged shard recompilation,
+  5.00 GiB peak owned private memory and 1.89 GiB minimum system headroom.
+
+- 2026-10-12 04:23 CDT — GPT-6 (Codex): Found that disabling the optional widescreen
+  hooks exposed overlapping eight-byte redirect copies that clobbered adjacent
+  four-byte projection slots, hiding the 3D scene. Seeded original 1.0, 0.5 and
+  float32 1.1 values verified at the existing source addresses in the pinned
+  executable. Regeneration and disabled-widescreen scene rendering now pass;
+  HUD proportions in that mode remain incorrect.
+  An ordinary visible 1,050.7-second probe (no injected GPU counters or D3D9
+  statistics query) peaked at 2.24 GiB owned private and 0.56 GiB GPU private,
+  with 4.40 GiB minimum available system memory and no guard trip. The native
+  performance overlay remained enabled. Drag restart, gear-down with Ctrl,
+  gear-up with Shift and traffic-collision standings worked; no valid finish.
+  A driving audio sample contained nonzero PCM; subjective quality remains
+  unverified. Missing drag HUD readouts remain under investigation. No physical
+  controller was exposed by the browser during this run.
+
 - 2026-10-12 03:57 CDT — GPT-6 (Codex): Added the verified manual shift-up action to
   NFS browser hints (Shift on keyboard; R1, RB or R on mapped controllers).
   Shoulder labels now follow PlayStation, Xbox, Nintendo and generic controller

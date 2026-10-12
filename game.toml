@@ -119,6 +119,14 @@ instruction_patches = [
     { at = 0x006c20a0, text = "PUSH 0xa37838" },
 ]
 data_seeds = [
+    # Relocated original camera constants must also work when the widescreen
+    # mod's optional hooks are disabled. Verified in the supported executable:
+    # 0x0089096c = 1.0, 0x008933d4 = 0.5, 0x008910c4 = 1.1 (float32).
+    { addr = 0x00a37804, float = 1.0 },
+    { addr = 0x00a37808, float = 0.5 },
+    { addr = 0x00a3780c, float = 1.0 },
+    { addr = 0x00a37818, float = 1.0 },
+    { addr = 0x00a3781c, float = 1.1 },
     { addr = 0x00a37810, float = 1.0 },
     { addr = 0x00a37814, float = 1.0 },
     { addr = 0x00a37824, float = 450.0 },

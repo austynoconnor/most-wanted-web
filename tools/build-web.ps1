@@ -23,6 +23,9 @@ if ($Jobs -lt 1) { throw 'Jobs must be positive.' }
 Push-Location $taskRoot
 try {
     $env:EMSDK_QUIET = '1'
+    # Large translated modules use substantial optimizer memory per worker.
+    # Keep the default link within desktop headroom; callers may opt into more.
+    if (-not $env:BINARYEN_CORES) { $env:BINARYEN_CORES = '1' }
     & $taskSdkEnvironment
     # Windows may invoke emcc through an 8.3 path. Expand SDK-relative paths
     # once so both invocations share a stable compiler identity and cache.
