@@ -376,3 +376,22 @@ build tasks instead of recompiling unchanged shards. The full guarded build
 passed with 5.00 GiB peak owned private memory and 1.89 GiB minimum available
 system memory; this includes translation, not only optimization. All 60
 relevant build-driver, game configuration and browser/launcher checks passed.
+
+## Merged kit, first visible Chrome pass (2026-10-12 15:27 CDT, Claude Opus 5.5)
+
+- Kit pinned at recomp-kit browser-release 1373796 (giggity-d3d8 fixes merged).
+- Crash fixed: static D3D9 vertex/index buffers no longer keep a guest-heap
+  copy after unlock; keeping one for every buffer exhausted the guest heap
+  during race load.
+- Works in visible Chrome (WebGPU): menus, Quick Race circuit and speedtrap,
+  arrows and WASD, HUD (speed, gear, position, lap), AudioWorklet audio with
+  0 underruns. Game fps 70-78 in menus, 46-66 in races (14-21 ms frames).
+  Chrome peak private memory about 2 GB.
+- Open: a simulated Gamepad API controller reaches the virtual pad
+  (`RECOMP_CONTROLS_TRACE=1` shows the buttons) but the mapped binding's
+  synthesized key presses do not move NFS menus; a controller present from
+  boot once held a "Load complete" dialog at about 1 fps. Untested with a
+  real pad. Drag-race readouts and a bright bloom flash on the intro camera
+  are unverified.
+- After every web build, restart the 8094 server: the build rewrites
+  `build/web-site/games.json` without the streamed-asset base.

@@ -901,7 +901,7 @@ rows = ["window", "performance_overlay", "controls"]
 pad = "mapped"
 # WASD also presses the arrows: the 2005 executable binds one key per action
 # (arrows drive and steer) and leaves W, A, S and D unbound by default.
-key_aliases = { Up = "W", Down = "S", Left = "A", Right = "D" }
+key_aliases = { W = "Up", S = "Down", A = "Left", D = "Right" }
 
 [controls.mapped]
 # Racing preset over the game's default PC keys. The 2005 executable reads

@@ -2,6 +2,25 @@
 
 ## Unreleased
 
+- 2026-10-12 15:27 CDT — Claude Opus 5.5: First visible Chrome test of the
+  merged kit build, now pinned (recomp-kit browser-release 1373796). Fixed a
+  race-load crash ("memory access out of bounds"): the merged kit kept a
+  guest-heap copy of every locked vertex/index buffer for its whole life and
+  ran the 2005 game out of guest heap; only DYNAMIC buffers keep it now.
+  Corrected the WASD alias direction (key_aliases is key = target, so
+  W = "Up" makes W also press Up). Verified in visible Chrome on WebGPU:
+  title, menus, Quick Race (circuit and speedtrap) load and drive with arrows
+  and WASD; speedometer, gear, position and lap HUD render; audio plays
+  through the AudioWorklet with 0 underruns; game frame rate about 70-78 fps
+  in menus and 46-66 fps in races; Chrome peaked near 2 GB. Input hints switch
+  between keyboard and controller text. Known gaps: a simulated browser
+  controller connects and its buttons reach the host's virtual pad, but the
+  mapped key presses do not move the menus yet, and a controller present
+  from boot once stalled a loading dialog at about 1 fps; a real pad was not
+  available to test. Drag-race readouts and a bright bloom flash on the race
+  intro camera were not investigated. Kit launcher/player/config tests (40)
+  pass.
+
 - 2026-10-12 13:05 CDT — Claude Opus 5.5: Took over from Codex. Merged the
   kit's giggity-d3d8 browser fixes (frame-slot no-wait, local clock,
   AudioWorklet audio, two frames ahead, canvas density, stall logger, D3D fog,
