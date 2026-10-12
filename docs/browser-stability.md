@@ -250,3 +250,56 @@ are estimates and do not include driver allocations. The different runs are
 not a controlled before/after memory comparison. The earlier desktop freeze
 and full-game release gates remain unresolved. Test profiles and diagnostic
 logs stay private under ignored build directories.
+
+## Additional modes, audio signal and asset audit (2026-10-12)
+
+A subsequent launch without GPU counters or D3D9 statistics opened custom
+Drag mode, selected Bayshore & Boardwalk with a stock Lexus IS 300, loaded
+the race and reached standings. The first attempt reported Blown Engine
+because the test held throttle without timely gear changes. Restarting
+returned to the countdown, and Shift advanced the car through fifth gear.
+This confirms race termination, restart and manual shifting; no winning or
+valid timed finish was established. Another resource-guard stop interrupted
+the follow-up run. Peak owned private memory was 3.85 GiB; available system
+memory dropped to 2.10 GiB. This still prevents a desktop-stability claim.
+
+In a separate menu measurement, SDL's browser AudioContext was running at
+48 kHz. All 819 observed output blocks contained nonzero game PCM, with
+peak amplitude 0.1858 and RMS 0.0447 across 3,354,624 channel samples.
+The measurement wrapped the existing audio callback and sampled its output,
+without recording other applications. Nonzero output establishes that audio
+reaches Web Audio, not its subjective quality or later-game consistency.
+
+The local hosted-asset audit passed all 1,393 manifest files: sized HEAD
+responses and first/middle/last byte ranges matched the original files.
+Requested ranges remained uncompressed even with Accept-Encoding: gzip,
+and Content-Range matched each request. It sampled 124,568 bytes in 13.42
+seconds. This verifies delivery availability for the manifest, not every
+asset's original-game semantics or a production host.
+
+## Explicit WebGPU storage retirement (2026-10-12)
+
+Ordinary owned texture destruction now waits until all open generic command
+encoders have been submitted, then calls WebGPU texture destruction after
+queue completion. Uniquely owned compositor uploads whose command completion
+has already been observed use a completed-texture path. Both paths release
+views and texture handles; imported external textures retain their original
+renderer ownership. This addresses repeated presenter composites and UI uploads
+whose storage previously depended on JavaScript handle garbage collection.
+Other backends retain their existing destruction behavior.
+
+The complete Windows Wasm build passed. An isolated instrumented headless
+NVIDIA run lasted 840 seconds without a diagnostic guard trip, loaded James,
+opened/closed host settings three times, streamed career loading, and drove,
+steered and paused/resumed the opening race. Peak owned-browser private memory
+was 2.30 GiB and peak GPU-process private memory was 0.52 GiB; minimum available
+system memory was 2.95 GiB. Menu GPU-process private memory was about 0.34 GiB.
+The Wasm heap grew from 512 to 704 MiB. Captured GPU validation errors were empty.
+The run used display scale 1 and two Wasm compiler tasks, with GPU counters and
+D3D9 statistics enabled. These are measured limits, not default-browser proof.
+
+The earlier 486.5-second probe peaked at 4.24 GiB owned private and 2.46 GiB GPU
+private. The new probe shows substantially lower observed memory, but its scene
+sequence and duration differ, so this is not a controlled percentage reduction.
+No valid race finish was reached. The earlier PC freeze, normal visible-browser
+launch and later career progression still need verification.

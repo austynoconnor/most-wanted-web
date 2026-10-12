@@ -2,6 +2,25 @@
 
 ## Unreleased
 
+- 2026-10-12 03:49 CDT — GPT-6 (Codex): Added an explicit completed-texture retirement
+  path for uniquely owned transient compositor UI textures. WebGPU destroys their
+  storage after GPU completion rather than relying on JavaScript handle garbage
+  collection; other backends retain existing destruction behavior. Ordinary
+  texture destruction retains owned handles while generic encoders are open,
+  then explicitly destroys their storage after the submitted queue completes.
+  This also covers retired presenter composites. Imported external textures
+  remain owned by their original renderer.
+  Complete four-job Windows Wasm rebuild passed. A guarded 840-second headless
+  NVIDIA probe loaded the saved alias, cycled settings three times, streamed
+  career loading and drove/steered/paused the opening race. Peak owned private
+  memory was 2.30 GiB, peak GPU-process private memory 0.52 GiB, and minimum
+  available system memory 2.95 GiB. No captured GPU validation errors or guard
+  trip. Wasm grew to 704 MiB. Default visible-browser stability, valid race
+  completion and later progression remain pending. Follow-up checks
+  reached drag-race standings, manual gear changes and restart countdown; separate
+  probes were closed by the 2.5 GiB system-headroom guard. Audited all 1,393 hosted
+  assets: sized HEAD and beginning/middle/end HTTP ranges matched local bytes.
+
 - 2026-10-12 02:48 CDT — GPT-6 (Codex): Completed the Windows release rebuild after
   fixing Emscripten long/8.3-path cache identity in the normal build wrapper.
   Original SDK configuration remains untouched. Integrated WebGPU depth

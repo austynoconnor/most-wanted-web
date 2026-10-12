@@ -1187,3 +1187,12 @@ This establishes live career driving, not a finished race or reliable later
 progression. Resource measurements, build fixes and test limits are recorded
 in [browser-stability.md](browser-stability.md). Default desktop stability,
 audio quality and physical controller checks remain release gates.
+
+### Browser texture storage retirement (2026-10-12)
+
+Explicit WebGPU storage retirement for presenter composites and completed UI
+uploads passed a full Windows Wasm build and a guarded 14-minute headless career
+probe: 2.30 GiB peak owned private memory, 0.52 GiB GPU private, no captured GPU
+validation errors. Settings, streamed career loading, driving, steering and pause
+worked. See browser-stability.md for methodology and remaining release gates;
+this does not establish a valid race finish or normal visible-browser stability.
