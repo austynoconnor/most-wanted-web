@@ -40,6 +40,15 @@ class NfsmwConfigTests(unittest.TestCase):
         self.assertEqual(self.cfg["developer_exe_path"], (ROOT / "original/retail/speed.exe").resolve())
         self.assertEqual(self.cfg["listings_path"], (ROOT / "analysis/decompiled/speed.exe").resolve())
 
+    def test_browser_hints_reference_the_mapped_controls(self):
+        actions = self.cfg["launcher"]["input_hints"]
+        bindings = self.cfg["controls"]["mapped"]
+        self.assertEqual(actions["confirm"], bindings["triangle"])
+        self.assertEqual(actions["back"], bindings["start"])
+        self.assertEqual(actions["accelerate"], bindings["r2"])
+        self.assertEqual(actions["brake"], bindings["l2"])
+        self.assertEqual(actions["steer"], bindings["left_stick"])
+
     def test_every_kit_macro_is_rendered(self):
         for macro in ("RECOMP_HOOK_FRAME_CLOCK_BEGIN", "RECOMP_HOOK_FRAME_CLOCK_WAIT",
                       "RECOMP_HOOK_FRAME_CLOCK_WAIT_CLAMP", "RECOMP_HOOK_FRAME_CLOCK_CLAMP_DEADLINE",

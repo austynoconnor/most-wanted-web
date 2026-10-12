@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- 2026-10-11 23:56 CDT — GPT-6 (Codex): Configured browser help from NFS's
+  actual native pad bindings, including top-face-button menu confirmation,
+  Start back/pause, trigger throttle/brake and stick steering. Updated the
+  launcher copy and canvas space for the fuller help. The kit now precompresses
+  generated Wasm/data transfers (137 MB to 15.3 MB and 8.5 MB to 0.46 MB for
+  this build), retaining range access to original files. Malformed or interrupted
+  import journals recover without removing profiles. Verified James saving and
+  loading again in isolated headless Chrome; the save run stopped cleanly but
+  the load run reached the external memory guard. 58 relevant checks and ten
+  direct Node tests pass. Updated analysis and browser verification limits:
+  reliable full career/races, default visible-browser memory, audio and physical
+  controller driving remain open. No public game hosting was deployed.
+
 - 2026-10-08 11:34 CDT — GPT-6 (Codex): Restored normal documentation
   paragraph spacing after a Windows newline conversion and clarified that
   the lower-overhead gameplay probe refused insufficient launch headroom.

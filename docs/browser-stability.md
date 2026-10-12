@@ -162,3 +162,38 @@ Full career, alias persistence, complete races, audio quality and physical
 controller driving remain unverified on the streamed path. A lower-overhead
 probe refused to launch after five minutes without its required 5.5 GiB initial
 headroom. The prior visible desktop freeze is still unverified.
+
+## Save persistence and delivery (2026-10-11)
+
+The streamed build created the alias James, displayed Save complete and wrote
+a 63,596-byte profile file. A separate launch with the same isolated test profile
+displayed Load complete. These checks establish a saved-alias round trip; they
+do not establish completion of a career race. Both used headless Chrome with
+two Wasm compiler tasks and display scale 1, rather than a default visible browser.
+The save run stopped cleanly at a 4,020 MiB peak. The subsequent load run reached
+4,172 MiB and its external watchdog closed the test browser.
+
+Controller help now derives actions from NFS's configured native bindings:
+the top face button confirms menus, Start/Menu/Options backs out or pauses,
+the right trigger accelerates, the left trigger brakes and the left stick steers.
+Keyboard help includes Enter, Esc, arrows and Space. This corrects the old
+generic bottom-button confirmation hint. Physical controller driving is pending.
+
+The launcher generates gzip sidecars for its compiled engine and companion
+startup data, and serves them when accepted with the original MIME type and
+Vary: Accept-Encoding. Original game files retain uncompressed byte ranges.
+The current 136,622,245-byte Wasm transfers as 15,321,738 bytes; the
+8,535,904-byte data package transfers as 461,803 bytes. Browser streaming
+instantiation and byte-for-byte decompressed integrity were checked. This
+reduces network transfer, not the compiled engine's memory requirements.
+
+Truncated or malformed import journals now recover by revalidating inputs.
+Valid journal entries remain reusable; the separate profile directory survives.
+Node and real browser OPFS tests exercise recovery and saved-file preservation.
+The relevant Python/browser suite passes 58 checks; the direct Node importer
+and FetchFS suites pass ten tests. No native implementation changed in this pass.
+
+Release remains blocked on reliable career/race completion, sustained memory
+use in a default visible browser, audio verification, physical controller driving
+and production hosting validation. In particular, the earlier PC freeze has
+not been proven fixed. Do not describe the current build as release ready.

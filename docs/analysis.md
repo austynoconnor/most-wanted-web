@@ -1168,3 +1168,12 @@ records cross held (`buttons 0001`) while the left stick moves from 0.55 to
 release. This confirms simultaneous pad routing on the iPad. The keyboard
 pairs were verified locally; no physical keyboard-layout chord was captured
 in this check. No application update was required.
+
+## Browser release checks (2026-10-11)
+
+The streamed browser build now has a verified James alias save/load round trip
+in an isolated headless profile. Delivery compression, controller action hints
+and interrupted-import recovery are documented in
+[browser-stability.md](browser-stability.md). These changes do not resolve the
+race-loading investigation above. Full career completion, default-browser memory
+stability, audio and physical controller play remain release gates.

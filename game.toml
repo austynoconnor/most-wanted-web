@@ -924,6 +924,16 @@ min_free_mb = 300
 # Fetch large archives in HTTP ranges when no complete local copy exists.
 stream_assets = true
 
+[launcher.input_hints]
+# Semantic labels for the actual PC actions; the browser resolves controller
+# buttons from controls.mapped instead of assuming a standard menu layout.
+confirm = "key:Return"
+back = "key:Escape"
+accelerate = "key:Up"
+brake = "key:Down"
+steer = "horizontal_arrows"
+handbrake = "key:Space"
+
 [setup]
 # tools/setup.py: what a supported installation must contain. No annotation
 # metadata exists for this executable; tools/analyze.py runs Ghidra's own
