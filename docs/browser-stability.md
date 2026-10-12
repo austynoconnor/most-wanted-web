@@ -197,3 +197,6 @@ Release remains blocked on reliable career/race completion, sustained memory
 use in a default visible browser, audio verification, physical controller driving
 and production hosting validation. In particular, the earlier PC freeze has
 not been proven fixed. Do not describe the current build as release ready.
+The next guarded career probe refused to launch after five minutes without
+5.5 GiB of available system memory. At the end of that preflight, only 4.05 GiB
+was available. It created no game browser; unrelated applications were left running.

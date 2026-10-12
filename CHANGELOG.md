@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- 2026-10-11 23:58 CDT — GPT-6 (Codex): Recorded the follow-up career probe's
+  five-minute preflight refusal: system memory never reached the 5.5 GiB launch
+  requirement and ended at 4.05 GiB free. No game browser was launched by that
+  probe. Further gameplay validation requires additional memory headroom.
+
 - 2026-10-11 23:56 CDT — GPT-6 (Codex): Configured browser help from NFS's
   actual native pad bindings, including top-face-button menu confirmation,
   Start back/pause, trigger throttle/brake and stick steering. Updated the
