@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- 2026-10-12 13:05 CDT — Claude Opus 5.5: Took over from Codex. Merged the
+  kit's giggity-d3d8 browser fixes (frame-slot no-wait, local clock,
+  AudioWorklet audio, two frames ahead, canvas density, stall logger, D3D fog,
+  strip depth bias, key remapping, skinned-shader fixes, longjmp-free callback
+  returns, missing-file cache) into the local kit checkout (fork branch
+  nfsmw-d3d8-merge, not yet pinned here). WASD now also drives (W/S = gas/brake,
+  A/D = steer) through [controls] key_aliases, and browser hints show it.
+  Regeneration and all 243 compile steps of the Windows Wasm build finished;
+  the final link has not: the shared PC kept under 7.5 GB free and one link
+  attempt was stopped by the 2 GB memory guard. Not yet tested in Chrome.
+  Game-config tests (5) and kit launcher/player/config suites pass.
+
 - 2026-10-12 05:10 CDT — GPT-6 (Codex): Completed regenerated Windows Wasm build
   and rendering validation of the camera baseline fix. Disabled-widescreen
   showroom, car selection and streamed drag track render again; its HUD still
