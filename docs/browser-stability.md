@@ -303,3 +303,21 @@ private. The new probe shows substantially lower observed memory, but its scene
 sequence and duration differ, so this is not a controlled percentage reduction.
 No valid race finish was reached. The earlier PC freeze, normal visible-browser
 launch and later career progression still need verification.
+
+## Visible Chrome with normal Wasm compilation (2026-10-12)
+
+An owned visible Chrome window, without the compiler-task override, ran for
+414.9 seconds and loaded the saved James alias, career intro and opening race.
+Acceleration, braking, steering and pause/resume responded. Peak owned private
+memory was 2.25 GiB, GPU-process private 0.57 GiB, and minimum available system
+memory 4.12 GiB. Wasm reached 608 MiB. No captured GPU validation errors or
+resource-guard trip occurred; the test stopped cleanly. This run used display
+scale 1 and diagnostic GPU counters/D3D9 statistics. It establishes a successful
+visible launch and brief career play on this machine, not sustained play in
+all browsers or a valid race finish. The earlier desktop freeze has not recurred
+in this probe, but longer ordinary-browser play remains necessary.
+
+The browser's game-specific hints now include the verified manual shift-up
+binding: Shift on keyboard and the mapped R1/RB/R shoulder on PlayStation,
+Xbox and Nintendo controllers. Generic pads use shoulder-position names.
+Physical controller driving remains unverified.

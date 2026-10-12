@@ -933,6 +933,7 @@ accelerate = "key:Up"
 brake = "key:Down"
 steer = "horizontal_arrows"
 handbrake = "key:Space"
+"shift up" = "key:LShift"
 
 [setup]
 # tools/setup.py: what a supported installation must contain. No annotation

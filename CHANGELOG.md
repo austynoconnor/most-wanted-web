@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- 2026-10-12 03:57 CDT — GPT-6 (Codex): Added the verified manual shift-up action to
+  NFS browser hints (Shift on keyboard; R1, RB or R on mapped controllers).
+  Shoulder labels now follow PlayStation, Xbox, Nintendo and generic controller
+  layouts. Extended the existing active-device browser fixture to cover shifting
+  across those layouts; all 15 player/launcher checks and five game-config
+  checks pass. A visible Chrome probe using normal compiler settings
+  ran 414.9 seconds, loaded the saved profile and streamed opening career race,
+  and exercised acceleration, braking, steering and pause/resume. Peak owned
+  private memory was 2.25 GiB, GPU private 0.57 GiB, and minimum system headroom
+  4.12 GiB. No captured GPU validation errors or diagnostic guard trip. Display
+  scale was 1, with diagnostic counters/statistics enabled; no valid race finish
+  was reached. Longer ordinary-browser play remains a release gate.
+
 - 2026-10-12 03:49 CDT — GPT-6 (Codex): Added an explicit completed-texture retirement
   path for uniquely owned transient compositor UI textures. WebGPU destroys their
   storage after GPU completion rather than relying on JavaScript handle garbage
