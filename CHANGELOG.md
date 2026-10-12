@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- 2026-10-12 00:08 CDT — GPT-6 (Codex): Tried game loading without the
+  initial memory precheck at the user's request. The first attempt reached
+  the title but was manually stopped below 1 GiB free RAM. Corrected a local
+  diagnostic-watchdog startup gap and profile-path matching; rejected its
+  zero-byte peak as invalid evidence. A second attempt was automatically
+  stopped during loading with 1.45 GiB free RAM and 261 MiB owned Chrome private
+  memory. Recorded both results and remaining career/race validation limits.
+  No game/runtime implementation changed and no other applications were closed.
+
 - 2026-10-11 23:58 CDT — GPT-6 (Codex): Recorded the follow-up career probe's
   five-minute preflight refusal: system memory never reached the 5.5 GiB launch
   requirement and ended at 4.05 GiB free. No game browser was launched by that

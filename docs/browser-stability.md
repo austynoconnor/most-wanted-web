@@ -200,3 +200,20 @@ not been proven fixed. Do not describe the current build as release ready.
 The next guarded career probe refused to launch after five minutes without
 5.5 GiB of available system memory. At the end of that preflight, only 4.05 GiB
 was available. It created no game browser; unrelated applications were left running.
+
+## Requested low-headroom attempt (2026-10-12)
+
+At the user's request, a test bypassed the 5.5 GiB initial launch requirement
+while retaining runtime resource monitoring. Available memory at launch was
+only 0.98 GiB. The game reached the title with its 512 MiB Wasm heap, but system
+headroom fell to 0.64 GiB and the test was manually stopped. The monitor had
+incorrectly exited when its first low-memory sample preceded Chrome startup;
+its zero-byte private-memory peak is invalid and provides no stability evidence.
+
+The local diagnostic probes were corrected to continue waiting for the owned
+Chrome process, normalize profile-path separators and keep monitoring after a
+trip to catch late-starting child processes. A second attempt without the launch
+precheck was automatically stopped during loading: eight owned Chrome processes,
+261 MiB aggregate private memory, 1.45 GiB system memory available. These figures
+describe early startup only. No other applications were closed. Full career and
+race validation remain pending; neither attempt establishes desktop stability.
