@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- 2026-10-13 02:45 CDT — Claude Opus 5.5: LAN Play no longer closes the game.
+  Kit pinned at recomp-kit browser-release 9694d84 (Winsock 2 network-down
+  shims, listed by ordinal as speed.exe imports them). LAN Play now shows an
+  empty server list; Create Server reports a network problem; Back works.
+  Checked in visible Chrome with the performance overlay off: the drag-race HUD
+  shows position, race timer (21.77 s seen), MPH, gear and tachometer, so
+  the earlier "missing drag readouts" were hidden under the performance
+  overlay, not missing. Bright race starts (34 frames sampled 350 ms apart):
+  the only brightness spike was at GO, from the opponents' tire smoke; no
+  single-frame flash was found. A native PC reference capture was not
+  available for comparison.
+
 - 2026-10-12 19:25 CDT — Claude Opus 5.5: Controllers work in the browser.
   Kit pinned at recomp-kit browser-release 7c2c708, whose web start now
   installs the controls hooks; before, the browser pad reached the kit's

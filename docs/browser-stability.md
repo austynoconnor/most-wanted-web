@@ -408,3 +408,18 @@ relevant build-driver, game configuration and browser/launcher checks passed.
   key, SDL key, applied key and DirectInput keyboard edge.
 - Known: choosing LAN Play exits the game (unimplemented WSAStartup, then the
   game's buffer-overrun check).
+
+## LAN Play, drag HUD and race-start brightness (2026-10-13 02:45 CDT, Claude Opus 5.5)
+
+- LAN Play crash: speed.exe imports WS2_32 by ordinal (ord115 = WSAStartup and
+  21 others). The kit only listed names, so the ordinal calls popped no
+  arguments, the guest stack drifted and the game's /GS check reported a
+  buffer overrun and exited. recomp-kit 9694d84 lists every WS2_32 import by
+  name and ordinal and models a down network. Verified: empty LAN server
+  list, "problem trying to start the LAN server" dialog, Back to main menu.
+- Drag HUD and timer: with the kit's performance overlay off (as the site
+  sets it), a drag race shows position 4/4, timer, MPH, gear and the
+  tachometer. The readouts sit top-right, exactly under the overlay panel.
+- Race-start brightness: sampled 34 frames at 350 ms through countdown and GO.
+  Brightness rises once at GO with the opponents' tire smoke and stays
+  steady after; no one-frame flash. Not compared against a native capture.
