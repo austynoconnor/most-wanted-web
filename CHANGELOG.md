@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- 2026-10-12 19:25 CDT — Claude Opus 5.5: Controllers work in the browser.
+  Kit pinned at recomp-kit browser-release 7c2c708, whose web start now
+  installs the controls hooks; before, the browser pad reached the kit's
+  virtual pad but no key ever reached the game. Verified in visible Chrome
+  with a simulated standard gamepad, both connected after boot and present
+  from boot: d-pad and Y through the menus into Quick Race, RT accelerates
+  (84 mph seen), left stick steers; 82-102 fps in menus and race. The
+  earlier "1 fps with a pad at boot" did not reproduce. Found instead: LAN
+  Play crashes the game (WSAStartup, WS2_32 ordinal 115, is unimplemented
+  and the game then reports a buffer overrun and exits).
+
 - 2026-10-12 15:27 CDT — Claude Opus 5.5: First visible Chrome test of the
   merged kit build, now pinned (recomp-kit browser-release 1373796). Fixed a
   race-load crash ("memory access out of bounds"): the merged kit kept a

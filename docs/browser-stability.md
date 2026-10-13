@@ -395,3 +395,16 @@ relevant build-driver, game configuration and browser/launcher checks passed.
   are unverified.
 - After every web build, restart the 8094 server: the build rewrites
   `build/web-site/games.json` without the streamed-asset base.
+
+## Browser controller fixed (2026-10-12 19:25 CDT, Claude Opus 5.5)
+
+- Cause: the kit's web start never called `controls::host_init`, so the mapped
+  pad binding had an empty table and no hook for its key presses. Fixed in
+  recomp-kit 7c2c708 (pinned here).
+- Verified with a simulated gamepad (connected late and present from boot):
+  menus by d-pad and Y, Quick Race, RT gas, left-stick steering, 82-102 fps.
+  The earlier pad-at-boot 1 fps hang did not reproduce.
+- `RECOMP_CONTROLS_TRACE=1` now also prints `[input]` lines for each pushed
+  key, SDL key, applied key and DirectInput keyboard edge.
+- Known: choosing LAN Play exits the game (unimplemented WSAStartup, then the
+  game's buffer-overrun check).
