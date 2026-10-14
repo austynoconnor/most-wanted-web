@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- 2026-10-14 17:55 CDT — Claude Opus 5.5: kit pin moved to 8614a82 for the
+  career post-win freeze and driving stutter. Streamed game files arrive in
+  network chunks; the reading game thread used to hold the scheduler and
+  stop every other game thread for each round trip. It now lets the others
+  run while it waits. Also: WebGPU skips presents while the canvas is 0x0
+  (the startup texture-size errors), reads of 40 ms or more print
+  "[stall] slow read" lines, and with any RECOMP_ flag in the address the
+  player copies its log to the browser console so users can copy it. Retest
+  with /play/?game=nfsmw&RECOMP_STALL_MS=80. A local run of 3,700 frames
+  through menus and inputs had no deadlock and no frame over 132 ms after
+  start.
 - 2026-10-14 16:15 CDT — Claude Opus 5.5: the controller now uses the console
   layout by button position (Xbox 360 / PS2, as listed by NFS-XtendedInput):
   RT/R2 gas, LT/L2 brake/reverse, left stick steer, A/Cross e-brake and menu
