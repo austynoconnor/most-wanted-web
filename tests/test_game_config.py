@@ -43,7 +43,15 @@ class NfsmwConfigTests(unittest.TestCase):
     def test_browser_hints_reference_the_mapped_controls(self):
         actions = self.cfg["launcher"]["input_hints"]
         bindings = self.cfg["controls"]["mapped"]
-        self.assertEqual(actions["confirm"], bindings["triangle"])
+        # Console layout by position: A/Cross holds Space+Enter (e-brake in races,
+        # accept in menus), B nitrous, X speedbreaker, Y camera, LB look back.
+        self.assertEqual(bindings["cross"], actions["e-brake"] + "+" + actions["confirm"][4:])
+        self.assertEqual(actions["nitrous"], bindings["circle"])
+        self.assertEqual(actions["speedbreaker"], bindings["square"])
+        self.assertEqual(actions["camera"], bindings["triangle"])
+        self.assertEqual(actions["look back"], bindings["l1"])
+        self.assertEqual(actions["shift up"], bindings["r1"])
+        self.assertEqual(actions["reset car"], bindings["select"])
         self.assertEqual(actions["back"], bindings["start"])
         self.assertEqual(actions["accelerate"], bindings["r2"])
         self.assertEqual(actions["brake"], bindings["l2"])

@@ -322,6 +322,13 @@ binding: Shift on keyboard and the mapped R1/RB/R shoulder on PlayStation,
 Xbox and Nintendo controllers. Generic pads use shoulder-position names.
 Physical controller driving remains unverified.
 
+The controller layout now follows the console version by button position
+(2026-10-14): A/Cross holds Space+Enter (e-brake in races, accept in menus),
+B/Circle nitrous, X/Square speedbreaker, Y/Triangle camera, LB/L1 look back,
+RB/R1 shift up, Back/Select reset car, Start back/pause. A simulated pad
+reached Quick Race with A and backed out with Start; in-race presses still
+need a capture.
+
 ## Ordinary visible run and remaining HUD checks (2026-10-12)
 
 A subsequent visible Chrome probe removed injected GPU counters, the D3D9

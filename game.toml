@@ -904,23 +904,30 @@ pad = "mapped"
 key_aliases = { W = "Up", S = "Down", A = "Left", D = "Right" }
 
 [controls.mapped]
-# Racing preset over the game's default PC keys. The 2005 executable reads
-# DirectInput, not XInput; generic native joystick defaults are not this layout.
-# Triangle confirms menus; Start pauses/goes back; dpad navigates menus.
+# The Xbox 360 / PS2 console layout, mapped by button position onto the PC
+# keys (the 2005 executable reads DirectInput keys, not XInput):
+#   RT/R2 gas, LT/L2 brake/reverse, left stick steer, A/Cross e-brake,
+#   B/Circle nitrous, X/Square speedbreaker, Y/Triangle camera, LB/L1 and
+#   right-stick click look back, RB/R1 shift up, L3 shift down, Back/Select
+#   reset car, Start pause.
+# Menus: d-pad moves, A/Cross accepts (it holds Space+Enter; Space does nothing
+# in menus, Enter does nothing in races), Start goes back. The PC menus have
+# no separate back key apart from Esc, which pauses a race, so B cannot be
+# both nitrous and back.
 left_stick = "horizontal_arrows"
-right_stick = "cursor"
+right_stick = "none"
 dpad = "arrows"
-cross = "key:Up"
-square = "key:Down"
-circle = "key:Space"
-triangle = "key:Return"
-l1 = "key:Tab"
+cross = "key:Space+Return"
+circle = "key:X"
+square = "key:G"
+triangle = "key:C"
+l1 = "key:L"
 r1 = "key:LShift"
 l2 = "key:Down"
 r2 = "key:Up"
-l3 = "none"
-r3 = "mouse_left"
-select = "key:C"
+l3 = "key:LCtrl"
+r3 = "key:L"
+select = "key:R"
 start = "key:Escape"
 
 [launcher]
@@ -943,8 +950,13 @@ back = "key:Escape"
 accelerate = "key:Up"
 brake = "key:Down"
 steer = "horizontal_arrows"
-handbrake = "key:Space"
+"e-brake" = "key:Space"
+nitrous = "key:X"
+speedbreaker = "key:G"
+camera = "key:C"
+"look back" = "key:L"
 "shift up" = "key:LShift"
+"reset car" = "key:R"
 
 [setup]
 # tools/setup.py: what a supported installation must contain. No annotation

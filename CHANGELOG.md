@@ -2,6 +2,21 @@
 
 ## Unreleased
 
+- 2026-10-14 16:15 CDT — Claude Opus 5.5: the controller now uses the console
+  layout by button position (Xbox 360 / PS2, as listed by NFS-XtendedInput):
+  RT/R2 gas, LT/L2 brake/reverse, left stick steer, A/Cross e-brake and menu
+  accept (the button holds Space+Enter; Space does nothing in menus and Enter
+  nothing in races), B/Circle nitrous (X), X/Square speedbreaker (G),
+  Y/Triangle camera (C), LB/L1 and right-stick click look back (L), RB/R1
+  shift up, left-stick click shift down, Back/Select reset car (R),
+  Start back/pause, d-pad menus. B cannot also go back in menus: the PC game's
+  only back key is Esc, which pauses races. Browser hints list every action.
+  Kit pinned at recomp-kit browser-release ec99432 (two-key pad buttons,
+  per-pad Select label). Checked with a simulated Xbox pad in visible Chrome:
+  A accepts the title, main menu and Quick Race menus, Start goes back, the
+  hint line shows the new layout. In-race presses were not captured: the
+  local test server was stopped from outside twice while the race loaded.
+
 - 2026-10-13 02:45 CDT — Claude Opus 5.5: LAN Play no longer closes the game.
   Kit pinned at recomp-kit browser-release 9694d84 (Winsock 2 network-down
   shims, listed by ordinal as speed.exe imports them). LAN Play now shows an
